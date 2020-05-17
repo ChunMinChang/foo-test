@@ -1,0 +1,18 @@
+language: rust
+rust:
+  - stable
+  - beta
+  - nightly
+os:
+  - osx
+env:
+  - RUST_BACKTRACE=1
+before_script:
+  - rustc --version
+  - cargo --version
+script:
+  - sh lldb.sh
+jobs:
+  allow_failures:
+    - rust: nightly
+  fast_finish: true
